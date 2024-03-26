@@ -1,6 +1,7 @@
 package cl.jpinoc.virtualwallet;
 
 import cl.jpinoc.virtualwallet.model.entity.Movimientos;
+import cl.jpinoc.virtualwallet.service.Cuenta;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -11,6 +12,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        Cuenta cuenta = new Cuenta( );
         String nombre = "";
         double cantidad = 0;
         String password;
@@ -56,12 +58,14 @@ public class Main {
                         System.out.println("1. Depositar");
                         System.out.println("2. Retirar");
                         System.out.println("3. Consultar saldo");
-                        System.out.println("4. Volver al menu principal");
+                        System.out.println("4. Ver transacciones");
+                        System.out.println("5. Volver al menu principal");
                         switch (sc.nextInt()) {
                             case 1 -> {
                                 System.out.println("\n");
                                 System.out.println("Ingrese la cantidad a depositar");
                                 cantidad = sc.nextDouble();
+                                cuenta.depositar(5000);
 
                             }
 
@@ -69,7 +73,7 @@ public class Main {
                                 System.out.println("\n");
                                 System.out.println("Ingrese la cantidad a retirar");
                                 cantidad = sc.nextDouble();
-                                Movimientos movimientos = new Movimientos("Retiro", 100, LocalDate.now(), LocalTime.now());
+                                cuenta.retirar(500);
                             }
 
                             case 3 -> System.out.println("Saldo actual: ");

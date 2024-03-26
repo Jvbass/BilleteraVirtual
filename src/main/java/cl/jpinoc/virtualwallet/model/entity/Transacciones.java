@@ -1,8 +1,10 @@
 package cl.jpinoc.virtualwallet.model.entity;
 
+import cl.jpinoc.virtualwallet.controller.interfaces.ITransaccion;
+
 import java.util.List;
 
-public class Transacciones {
+public class Transacciones implements ITransaccion {
 
     private List<Movimientos> movimiento;
 
@@ -19,7 +21,7 @@ public class Transacciones {
     }
 
 
-    public void mostrarMovimientos(){
+    public void listarMovimientos(){
         if (movimiento.isEmpty()) {
             System.out.println("No hay movimientos que mostrar");
         } else {
