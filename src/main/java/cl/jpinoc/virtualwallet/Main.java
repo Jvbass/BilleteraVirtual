@@ -1,5 +1,9 @@
 package cl.jpinoc.virtualwallet;
 
+import cl.jpinoc.virtualwallet.model.entity.Movimientos;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -65,7 +69,7 @@ public class Main {
                                 System.out.println("\n");
                                 System.out.println("Ingrese la cantidad a retirar");
                                 cantidad = sc.nextDouble();
-
+                                Movimientos movimientos = new Movimientos("Retiro", 100, LocalDate.now(), LocalTime.now());
                             }
 
                             case 3 -> System.out.println("Saldo actual: ");

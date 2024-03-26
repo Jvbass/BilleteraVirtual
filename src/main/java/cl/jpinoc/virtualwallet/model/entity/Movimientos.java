@@ -47,5 +47,6 @@ public class Movimientos {
     public void setHora(String hora) {
         this.hora = LocalTime.now();
     }
+
 }
 
