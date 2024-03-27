@@ -1,6 +1,5 @@
 package cl.jpinoc.virtualwallet;
 
-import cl.jpinoc.virtualwallet.service.Transacciones;
 import cl.jpinoc.virtualwallet.service.Cuenta;
 
 import java.util.Scanner;
@@ -28,10 +27,11 @@ public class Main {
             password = sc.next();
             System.out.println("Ingresa tu saldo inicial");
             cantidad = sc.nextDouble();
+            cuenta.depositar(cantidad);
         } while (nombre.isEmpty() || password.isEmpty() || cantidad <= 0);
 
         System.out.println("Se ha creado la cuenta con número: " + numeroCuenta);
-        System.out.println("******Ingrese su contraseña******");
+        System.out.println("Ingrese su contraseña: ");
         password = sc.next();
 
         boolean salir = false;
