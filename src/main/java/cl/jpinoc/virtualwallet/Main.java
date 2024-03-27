@@ -5,8 +5,11 @@ import cl.jpinoc.virtualwallet.service.Cuenta;
 
 import java.util.Scanner;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+/**
+ * Clase principal que gestiona la interfaz de usuario para la billetera digital.
+ *  @author Jpino.dev
+ *  @version 1.0
+ */
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -19,7 +22,7 @@ public class Main {
         System.out.println("Bienvenido a tu billetera digital");
         System.out.println("-----------------------------------");
 
-
+        // Creación de la cuenta y autenticación del usuario
         do {
             System.out.println("Ingresa tu nombre");
             nombre = sc.next();
@@ -34,6 +37,7 @@ public class Main {
         System.out.println("Ingrese su contraseña: ");
         password = sc.next();
 
+        // Menú principal y opciones de la billetera digital
         boolean salir = false;
         boolean volver = false;
 
@@ -51,6 +55,7 @@ public class Main {
             do {
                 switch (sc.nextInt()) {
                     case 1 -> {
+                        // Opciones para la administración de fondos
                         System.out.println("Administracion de fondos");
                         System.out.println("-----------------------------------");
                         System.out.println("1. Depositar");
@@ -60,31 +65,32 @@ public class Main {
                         System.out.println("5. Volver al menu principal");
                         switch (sc.nextInt()) {
                             case 1 -> {
+                                // Depositar fondos en la cuenta
                                 System.out.println("\n");
                                 System.out.println("Ingrese la cantidad a depositar");
                                 cantidad = sc.nextDouble();
                                 cuenta.depositar(cantidad);
                             }
-
                             case 2 -> {
+                                // Retirar fondos de la cuenta
                                 System.out.println("\n");
                                 System.out.println("Ingrese la cantidad a retirar");
                                 cantidad = sc.nextDouble();
                                 cuenta.retirar(cantidad);
                             }
-
                             case 3 -> System.out.println("Saldo actual: " + cuenta.consultarSaldo());
                             case 4 -> {
+                                // Ver transacciones realizadas
                                 System.out.println("Transacciones");
                                 cuenta.obtenerMovimientos();
                                 System.out.println("-----------------------------------");
-
                             }
                             case 5 -> volver = true;
                             default -> System.out.println("Opcion no valida");
                         }
                     }
                     case 2 -> {
+                        // Opciones para ver el saldo en otra moneda
                         System.out.println("Ver saldo en otra moneda");
                         System.out.println("-----------------------------------");
                         System.out.println("1. Ver saldo en dolares");
@@ -92,23 +98,24 @@ public class Main {
                         System.out.println("3. Volver al menu principal");
                         switch (sc.nextInt()) {
                             case 1 -> {
+                                // Ver saldo en dólares
                                 System.out.println("****Saldo en Dolares****");
                                 cantidad = cuenta.consultarSaldo();
                                 Conversor.convertir(cantidad, "CLP", "USD");
                                 System.out.println("-----------------------------------");
                             }
-
                             case 2 -> {
+                                // Ver saldo en euros
                                 System.out.println("****Saldo en Euros****");
                                 Conversor.convertir(cantidad, "CLP", "EUR");
                                 System.out.println("-----------------------------------");
                             }
-
                             case 3 -> volver = true;
                             default -> System.out.println("Opcion no valida");
                         }
                     }
                     case 3 -> {
+                        // Opción para mostrar un resumen de la cuenta (puede ser implementada)
                         System.out.println("Resumen de cuenta");
                         System.out.println("-----------------------------------");
                     }
