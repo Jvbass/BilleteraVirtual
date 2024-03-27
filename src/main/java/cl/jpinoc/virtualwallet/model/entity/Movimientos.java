@@ -1,18 +1,18 @@
 package cl.jpinoc.virtualwallet.model.entity;
 
+import cl.jpinoc.virtualwallet.controller.interfaces.ITransaccion;
 import cl.jpinoc.virtualwallet.service.Cuenta;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class Movimientos extends Cuenta {
+public class Movimientos {
     private String tipoMovimiento; //retiro o deposito
     private double monto;
     private LocalDate fecha;
     private LocalTime hora;
 
     public Movimientos(String tipoMovimiento, double monto, LocalDate fecha, LocalTime hora) {
-        super();
         this.tipoMovimiento = tipoMovimiento;
         this.monto = monto;
         this.fecha = fecha;
