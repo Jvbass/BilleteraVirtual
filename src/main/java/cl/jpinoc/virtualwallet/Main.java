@@ -1,10 +1,8 @@
 package cl.jpinoc.virtualwallet;
 
-import cl.jpinoc.virtualwallet.model.entity.Movimientos;
+import cl.jpinoc.virtualwallet.service.Transacciones;
 import cl.jpinoc.virtualwallet.service.Cuenta;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -12,7 +10,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Cuenta cuenta = new Cuenta( );
+        Cuenta cuenta = new Cuenta();
         String nombre = "";
         double cantidad = 0;
         String password;
@@ -65,19 +63,24 @@ public class Main {
                                 System.out.println("\n");
                                 System.out.println("Ingrese la cantidad a depositar");
                                 cantidad = sc.nextDouble();
-                                cuenta.depositar(5000);
-
+                                cuenta.depositar(cantidad);
                             }
 
                             case 2 -> {
                                 System.out.println("\n");
                                 System.out.println("Ingrese la cantidad a retirar");
                                 cantidad = sc.nextDouble();
-                                cuenta.retirar(500);
+                                cuenta.retirar(cantidad);
                             }
 
-                            case 3 -> System.out.println("Saldo actual: ");
-                            case 4 -> volver = true;
+                            case 3 -> System.out.println("Saldo actual: " + cuenta.consultarSaldo());
+                            case 4 -> {
+                                System.out.println("Transacciones");
+                                cuenta.obtenerMovimientos();
+                                System.out.println("-----------------------------------");
+
+                            }
+                            case 5 -> volver = true;
                             default -> System.out.println("Opcion no valida");
                         }
                     }
