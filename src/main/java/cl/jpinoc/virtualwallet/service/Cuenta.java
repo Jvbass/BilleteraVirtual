@@ -5,25 +5,14 @@ import cl.jpinoc.virtualwallet.model.entity.Movimientos;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Cuenta implements IBilletera {
     private double saldo;
     private Transacciones transacciones;
 
-
-    public Cuenta(double saldo) {
-        this.saldo = saldo;
-    }
-    public void deposito(double cantidad) {
-    }
-
     public Cuenta() {
         this.transacciones = new Transacciones();
-    }
-    public double getSaldo() {
-        return saldo;
     }
 
     @Override
