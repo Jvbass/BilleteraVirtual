@@ -36,12 +36,24 @@ public class Main {
         System.out.println("Se ha creado la cuenta con número: " + numeroCuenta);
         System.out.println("Ingrese su contraseña: ");
         password = sc.next();
+        boolean autorizacion = false;
+
+        for (int i = 0; i < 3; i++) {
+            if (password.equals("1234")) {
+                System.out.println("Bienvenido " + nombre);
+                autorizacion = true;
+                break;
+            } else {
+                System.out.println("Contraseña incorrecta, te quedan " + (2 - i) + " intentos");
+                password = sc.next();
+            }
+        }
 
         // Menú principal y opciones de la billetera digital
         boolean salir = false;
         boolean volver = false;
 
-        do {
+        while (!salir && autorizacion) {
             System.out.println("\n");
             System.out.println("Billetera digital de: " + nombre);
             System.out.println("Numero de cuenta: " + numeroCuenta);
@@ -122,9 +134,7 @@ public class Main {
                     case 4 -> salir = true;
                     default -> System.out.println("Opcion no valida");
                 }
-            } while (volver);
-
-        } while (!salir);
-
+            } while (volver); //end of do
+        }//end of while
     }//end of main
 }//end of class
