@@ -10,22 +10,20 @@ import java.util.List;
 
 public class Cuenta implements IBilletera {
     private double saldo;
-    private List<Movimientos> movimientos;
+    private Transacciones transacciones;
+
 
     public Cuenta(double saldo) {
         this.saldo = saldo;
-        this.movimientos = new ArrayList<>();
+    }
+    public void deposito(double cantidad) {
     }
 
     public Cuenta() {
-        this.movimientos = new ArrayList<>();
+        this.transacciones = new Transacciones();
     }
     public double getSaldo() {
         return saldo;
-    }
-
-    public void deposito(double cantidad) {
-
     }
 
     @Override
@@ -34,8 +32,9 @@ public class Cuenta implements IBilletera {
             System.out.println("No se puede depositar una cantidad negativa o igual a 0");
         } else {
             this.saldo += cantidad;
-            Movimientos movimiento = new Movimientos("Depósito", cantidad, LocalDate.now(), LocalTime.now());
-            this.movimientos.add(movimiento);
+            Movimientos movimiento = new Movimientos("Deposito", cantidad, LocalDate.now(), LocalTime.now());
+            this.transacciones.agregarMovimiento(movimiento); // Asegúrate de tener un método para agregar movimientos en la clase Transacciones
+
         }
     }
 
@@ -48,7 +47,7 @@ public class Cuenta implements IBilletera {
         else {
             this.saldo -= cantidad;
             Movimientos movimiento = new Movimientos("Retiro", cantidad, LocalDate.now(), LocalTime.now());
-            this.movimientos.add(movimiento);
+            this.transacciones.agregarMovimiento(movimiento);
             return true;
         }
     }
@@ -57,4 +56,9 @@ public class Cuenta implements IBilletera {
     public double consultarSaldo() {
         return this.saldo;
     }
+
+    public void obtenerMovimientos() {
+        transacciones.listarMovimientos();
+    }
+
 }
