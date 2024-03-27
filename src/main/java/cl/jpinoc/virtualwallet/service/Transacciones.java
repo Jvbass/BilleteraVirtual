@@ -11,30 +11,21 @@ public class Transacciones implements ITransaccion{
 
     private List<Movimientos> movimiento;
 
-    public Transacciones() {
+    public Transacciones(){
         this.movimiento = new ArrayList<>();
-    }
-
-    public List<Movimientos> getMovimiento() {
-        return movimiento;
-    }
-
-    public void setMovimiento(List<Movimientos> movimiento) {
-        this.movimiento = movimiento;
     }
 
     public void agregarMovimiento(Movimientos movimiento){
         this.movimiento.add(movimiento);
     }
 
-
     public void listarMovimientos(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-        if (movimiento.isEmpty()) {
+        if (movimiento.isEmpty()){
             System.out.println("No hay movimientos que mostrar");
         } else {
             for (Movimientos movimiento : movimiento) {
-                if (movimiento.getTipoMovimiento().equals("Deposito")) {
+                if (movimiento.getTipoMovimiento().equals("Deposito")){
                     System.out.println("Deposito: " + movimiento.getMonto() + " " + movimiento.getFecha() + " " + movimiento.getHora().format(formatter) + "\n");
                 } else {
                     System.out.println("Retiro: -" + movimiento.getMonto() + " " + movimiento.getFecha() + " " + movimiento.getHora().format(formatter) + "\n");
