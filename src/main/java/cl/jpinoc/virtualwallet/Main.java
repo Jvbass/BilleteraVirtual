@@ -1,5 +1,6 @@
 package cl.jpinoc.virtualwallet;
 
+import cl.jpinoc.virtualwallet.service.Conversor;
 import cl.jpinoc.virtualwallet.service.Cuenta;
 
 import java.util.Scanner;
@@ -14,7 +15,6 @@ public class Main {
         double cantidad = 0;
         String password;
         int numeroCuenta = (int) (Math.random() * 100000000);
-
 
         System.out.println("Bienvenido a tu billetera digital");
         System.out.println("-----------------------------------");
@@ -93,12 +93,14 @@ public class Main {
                         switch (sc.nextInt()) {
                             case 1 -> {
                                 System.out.println("****Saldo en Dolares****");
-
+                                cantidad = cuenta.consultarSaldo();
+                                Conversor.convertir(cantidad, "CLP", "USD");
                                 System.out.println("-----------------------------------");
                             }
 
                             case 2 -> {
                                 System.out.println("****Saldo en Euros****");
+                                Conversor.convertir(cantidad, "CLP", "EUR");
                                 System.out.println("-----------------------------------");
                             }
 
@@ -109,9 +111,7 @@ public class Main {
                     case 3 -> {
                         System.out.println("Resumen de cuenta");
                         System.out.println("-----------------------------------");
-
                     }
-
                     case 4 -> salir = true;
                     default -> System.out.println("Opcion no valida");
                 }
