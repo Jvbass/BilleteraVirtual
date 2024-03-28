@@ -11,5 +11,5 @@ public interface ITransaccion {
      * Método para listar los movimientos realizados en la billetera virtual.
      * Este método debe ser implementado por las clases que gestionan las transacciones.
      */
-    public void listarMovimientos();
+    void listarMovimientos();
 }

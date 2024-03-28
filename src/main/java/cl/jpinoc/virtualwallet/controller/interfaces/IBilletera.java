@@ -12,7 +12,7 @@ public interface IBilletera {
      *
      * @param cantidad la cantidad a depositar.
      */
-    public void depositar(double cantidad);
+    void depositar(double cantidad);
 
     /**
      * Método para retirar una cantidad de la billetera.
@@ -20,13 +20,13 @@ public interface IBilletera {
      * @param cantidad la cantidad a retirar.
      * @return true si el retiro fue exitoso, false si no se pudo realizar.
      */
-    public boolean retirar(double cantidad);
+    boolean retirar(double cantidad);
 
     /**
      * Método para consultar el saldo actual de la billetera.
      *
      * @return el saldo actual de la billetera.
      */
-    public double consultarSaldo();
+    double consultarSaldo();
 
 }
