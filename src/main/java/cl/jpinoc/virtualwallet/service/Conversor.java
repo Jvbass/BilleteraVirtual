@@ -44,6 +44,10 @@ public class Conversor {
         if (monedaDesde == null || monedaA == null) {
             throw new IllegalArgumentException("Moneda no encontrada");
         }
+        // Verificar si el monto es válido
+        if (monto < 0) {
+            throw new IllegalArgumentException("El monto debe ser mayor o igual a 0");
+        }
 
         // Realizar la conversión
         double result = (monto * monedaDesde.getValor()) / monedaA.getValor();
