@@ -1,6 +1,8 @@
 package cl.jpinoc.virtualwallet.service;
 
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,6 +15,11 @@ class CuentaTest {
     @BeforeEach
     void setUp() {
         cuenta = new Cuenta();
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        System.out.println("\n"+"Pruebas finalizadas.");
     }
 
     @Test
