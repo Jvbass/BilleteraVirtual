@@ -49,7 +49,7 @@ class ConversorTest {
     }
 
     @Test
-    @DisplayName("Test convertir monto negativo, arroja excepcion")
+    @DisplayName("Test convierte monto negativo, arroja excepcion")
     void convertirMontoNegativoArrojaExcepcion() {
         double monto = -100.0;
         String monedaDesde = "EUR";
@@ -59,7 +59,7 @@ class ConversorTest {
     }
 
     @Test
-    @DisplayName("Test convertir monto cero, no arroja excepcion")
+    @DisplayName("Test convierte monto cero, no arroja excepcion")
     void convertirMontoCeroDevuelveCero() {
         double monto = 0.0;
         String monedaDesde = "USD";
