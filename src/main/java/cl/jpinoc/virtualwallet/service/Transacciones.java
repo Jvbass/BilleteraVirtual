@@ -37,6 +37,7 @@ public class Transacciones implements ITransaccion {
     /**
      * Método para listar todos los movimientos registrados.
      * Imprime en la consola los detalles de cada movimiento, incluyendo el tipo, monto, fecha y hora.
+     * @see Movimientos
      */
     public void listarMovimientos() {
         // Formateador de fecha y hora

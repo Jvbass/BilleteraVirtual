@@ -33,7 +33,9 @@ public class Conversor {
      * @param monto el monto a convertir.
      * @param monedaOrigen la moneda de origen.
      * @param monedaDestino la moneda de destino.
-     * @throws IllegalArgumentException si alguna de las monedas no se encuentra en el map.
+     * @exception IllegalArgumentException si alguna de las monedas no se encuentra en el map.
+     * @exception IllegalArgumentException si el monto es negativo.
+     * @see IMoneda
      */
     public static void convertir(double monto, String monedaOrigen, String monedaDestino) {
         // Obtener las instancias de IMoneda correspondientes a las monedas de origen y destino

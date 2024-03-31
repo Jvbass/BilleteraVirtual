@@ -31,6 +31,7 @@ public class Cuenta implements IBilletera {
      * Método para depositar una cantidad en la cuenta.
      *
      * @param cantidad la cantidad a depositar.
+     * @exception IllegalArgumentException si la cantidad es negativa o igual a 0.
      */
     @Override
     public void depositar(double cantidad) {
@@ -50,6 +51,7 @@ public class Cuenta implements IBilletera {
      *
      * @param cantidad la cantidad a retirar.
      * @return true si el retiro fue exitoso, false si no se pudo realizar.
+     * @exception  IllegalArgumentException si la cantidad es negativa o mayor al saldo.
      */
     @Override
     public boolean retirar(double cantidad) {
@@ -80,6 +82,7 @@ public class Cuenta implements IBilletera {
     /**
      * Método para obtener los movimientos realizados en la cuenta.
      * Imprime en la consola los detalles de los movimientos registrados.
+     * @see Transacciones#listarMovimientos()
      */
     public void obtenerMovimientos() {
         transacciones.listarMovimientos();
