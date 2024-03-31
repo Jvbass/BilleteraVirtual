@@ -31,7 +31,9 @@ public class Main {
         System.out.println("Bienvenido a tu billetera digital");
         System.out.println("-----------------------------------");
 
-        // Creación de la cuenta y autenticación del usuario
+    /*
+    * Creación de la cuenta y autenticación del usuario
+    */
         do {
             System.out.println("Ingresa tu nombre");
             nombre = sc.next();
@@ -59,15 +61,25 @@ public class Main {
                 autorizacion = true;
                 break;
             } else {
-                System.out.println("Contraseña incorrecta, te quedan " + (2 - i) + " intentos");
+                System.out.println("Contraseña incorrecta, te quedan " + (3 - i) + " intentos");
                 password = sc.next();
+                if (password.equals(Usuario.getPassword())) {
+                    System.out.print("Bienvenido " + nombre);
+                    autorizacion = true;
+                    break;
+                }
             }
+        }
+
+        if (!autorizacion) {
+            System.out.println("Acceso no autorizado. Cerrando el sistema...");
+            return; // Salir del método main y finalizar el programa
         }
 
         // Menú principal y opciones de la billetera digital
         boolean salir = false;
 
-        do {
+        while (!salir && autorizacion == true) {
             System.out.println(" ");
             System.out.println("Billetera digital de: " + Usuario.getNombre());
             System.out.println("Numero de cuenta: " + Usuario.getNumeroCuenta());
@@ -132,9 +144,7 @@ public class Main {
                 // Salir de la aplicación
                 case 7 -> salir = true;
                 default -> System.out.println("Opcion no valida");
-
             }
-        } while (!salir);
-
+        } //end of while
     }//end of main
 }//end of class
