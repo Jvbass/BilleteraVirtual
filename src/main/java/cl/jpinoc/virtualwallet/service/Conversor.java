@@ -18,13 +18,13 @@ public class Conversor {
     *Map que almacena las instancias de IMoneda para cada moneda segun su clave Nombre.
     * Todas las clases que implementen IMoneda pueden ser agregadas a este map como valor.
     */
-    private static Map<String, IMoneda> coins = new HashMap<>();
+    private static Map<String, IMoneda> monedas = new HashMap<>();
 
     // Poblamos el map con las monedas disponibles
     static {
-        coins.put("USD", new Dolar());
-        coins.put("EUR", new Euro());
-        coins.put("CLP", new PesoCl());
+        monedas.put("USD", new Dolar());
+        monedas.put("EUR", new Euro());
+        monedas.put("CLP", new PesoCl());
     }
 
     /**
@@ -39,8 +39,8 @@ public class Conversor {
      */
     public static void convertir(double monto, String monedaOrigen, String monedaDestino) {
         // Obtener las instancias de IMoneda correspondientes a las monedas de origen y destino
-        IMoneda monedaDesde = coins.get(monedaOrigen);
-        IMoneda monedaA = coins.get(monedaDestino);
+        IMoneda monedaDesde = monedas.get(monedaOrigen);
+        IMoneda monedaA = monedas.get(monedaDestino);
 
         // Verificar si las monedas existen en el map
         if (monedaDesde == null || monedaA == null) {
@@ -52,9 +52,10 @@ public class Conversor {
         }
 
         // Realizar la conversión
-        double result = (monto * monedaDesde.getValor()) / monedaA.getValor();
+        double resultado = (monto * monedaDesde.getValor()) / monedaA.getValor();
+        String resultadoString = String.format("%.2f", resultado);
 
         // Imprimir el resultado de la conversión
-        System.out.println(monto + " " + monedaDesde.getNombre() + " = " + result + " " + monedaA.getNombre());
+        System.out.println(monto + " " + monedaDesde.getNombre() + " = " + resultadoString + " " + monedaA.getNombre());
     }
 }
