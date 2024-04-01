@@ -80,6 +80,7 @@ public class Main {
         boolean salir = false;
 
         while (!salir && autorizacion == true) {
+            System.out.println("\n");
             System.out.println(" ");
             System.out.println("Billetera digital de: " + Usuario.getNombre());
             System.out.println("Numero de cuenta: " + Usuario.getNumeroCuenta());
@@ -94,7 +95,7 @@ public class Main {
 
             switch (sc.nextInt()) {
                 // Consultar saldo
-                case 1 -> System.out.println("Saldo actual: " + cuenta.consultarSaldo());
+                case 1 -> System.out.println("\n Saldo actual: " + cuenta.consultarSaldo());
 
                 case 2 -> {
                     // Depositar en la cuenta
@@ -113,22 +114,25 @@ public class Main {
                 }
                 case 4 -> {
                     // Ver transacciones realizadas
+                    System.out.println("\n");
                     System.out.println("Transacciones");
                     cuenta.obtenerMovimientos();
                     System.out.println("-----------------------------------");
                 }
                 case 5 -> {
                     // Ver saldo en dólares
+                    System.out.println("\n");
                     System.out.println("****Saldo en Dolares****");
-                    Conversor.convertir(cantidad, "CLP", "USD");
+                    Conversor.convertir(cuenta.consultarSaldo(), "CLP", "USD");
                     System.out.println("-----------------------------------");
                     // Ver saldo en euros
                     System.out.println("****Saldo en Euros****");
-                    Conversor.convertir(cantidad, "CLP", "EUR");
+                    Conversor.convertir(cuenta.consultarSaldo(), "CLP", "EUR");
                     System.out.println("-----------------------------------");
                 }
                 case 6 -> {
                     // Opción resumen de la cuenta
+                    System.out.println("\n");
                     System.out.println("Resumen de cuenta");
                     System.out.println("Nombre: " + Usuario.getNombre());
                     System.out.println("Numero de cuenta: " + Usuario.getNumeroCuenta());
