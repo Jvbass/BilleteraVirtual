@@ -12,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.*;
 * */
 class ConversorTest {
 
-
     @AfterAll
     static void mensajeAlFinal() {
         System.out.println("\n"+"Pruebas finalizadas.");

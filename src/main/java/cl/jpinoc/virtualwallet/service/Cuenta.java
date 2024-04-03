@@ -1,6 +1,6 @@
 package cl.jpinoc.virtualwallet.service;
 
-import cl.jpinoc.virtualwallet.controller.interfaces.IBilletera;
+import cl.jpinoc.virtualwallet.controller.interfaces.ICuenta;
 import cl.jpinoc.virtualwallet.model.entity.Movimientos;
 
 import java.time.LocalDate;
@@ -11,21 +11,19 @@ import java.time.LocalTime;
  * @author Jpino.dev
  * @version 1.0
  */
-public class Cuenta implements IBilletera {
+public class Cuenta implements ICuenta {
 
     // Saldo de la cuenta
     private double saldo;
+    private Transacciones transacciones = new Transacciones();
 
     // Instancia de Transacciones para gestionar los movimientos de la cuenta
-    private Transacciones transacciones;
 
     /**
      * Constructor de la clase Cuenta.
      * Inicializa la instancia de Transacciones asociada a la cuenta.
      */
-    public Cuenta() {
-        this.transacciones = new Transacciones();
-    }
+
 
     /**
      * Método para depositar una cantidad en la cuenta.

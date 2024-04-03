@@ -1,8 +1,6 @@
 package cl.jpinoc.virtualwallet.service;
 
-
 import org.junit.jupiter.api.*;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -25,7 +23,7 @@ class CuentaTest {
     }
 
     @Test
-    @DisplayName("Test deposito monto positivo, compruba suma en saldo")
+    @DisplayName("Test deposito monto positivo, comprueba suma en saldo")
     void depositarMontoPositivoSumaSaldo() {
         double montoInicial = cuenta.consultarSaldo();
         double montoDeposito = 100.0;
@@ -36,7 +34,7 @@ class CuentaTest {
     }
 
     @Test
-    @DisplayName("Test deposito monto negativo, compruba no hay cambio en saldo")
+    @DisplayName("Test deposito monto negativo, comprueba no hay cambio en saldo")
     void depositarMontoNegativoNoCambiaSaldo() {
         double montoInicial = cuenta.consultarSaldo();
         double montoDeposito = -50.0;
@@ -47,7 +45,7 @@ class CuentaTest {
     }
 
     @Test
-    @DisplayName("Test retiro monto menor al saldo, compruba resta en saldo")
+    @DisplayName("Test retiro monto menor al saldo, comprueba resta en saldo")
     void retirarMontoMenorAlSaldoDisminuyeSaldo() {
         double montoDeposito = 100.0;
         double montoRetiro = 50.0;
