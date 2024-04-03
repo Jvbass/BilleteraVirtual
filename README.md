@@ -26,6 +26,15 @@ Este proyecto es una aplicación de consola que simula una billetera virtual. El
 ** El proyecto incluye tambien test unitarios para las clases principales.
 
 ## 📚 Diagrama de clases
+![Texto alternativo](./UMLVirtualWallet.jpg)
+### Descripción de relaciones entre las clases:
+- Usuario y Cuenta: Relación de composición 1 a 1. Un usuario debe tener 1 cuenta para existir en el sistema. Para que tenga una cuenta debe disponer si o si de un saldo inicial para crear su cuenta, aunque éste esté en cero.
+- Cuenta y Transacciones: Relación de asociación bidireccional 1 a 1, ya que una instancia de cuenta esta asociada a una instancia (lista) de transacciones y viceversa. Cuenta tiene el atributo transacciones de tipo Transacciones.
+- Transacciones y Movimientos: Relación de agregación 1 a *. Una instancia de Transacciones (lista) contiene muchos movimientos. Movimientos es parte de Transacciones.
+- Conversor e IMoneda: Relación de asociación, la clase Conversor utiliza la interfaz IMoneda para definir el tipo de objetos de moneda que puede manejar al tener como atributo estático de tipo Map<String, IMoneda>.
+- Conversor y Cuenta: Relación de asociación débil. La clase Cuenta utiliza el atributo saldo de la clase Conversor, aun así no son dependientes una de la otra al no compartir atributos ni métodos.
+- Las interfaces ITransaccion e ICuenta son implementadas por las clases correspondientes.
+- La interface IMoneda es implementadas por las clases Euro, Dólar, PesoCl y asociada a la clase Conversor para cumplir con el Principio de Inversión de Dependencias La clase Conversor no depende de las implementaciones de las monedas Dolar, Euro y PesoCl, sino que depende de la abstracción IMoneda. Esto significa que Conversor puede trabajar con cualquier moneda, siempre y cuando esa moneda implemente la interfaz IMoneda.
 
 
 ## ‍🧑‍🔬Principios de la POO aplicados 
@@ -53,6 +62,8 @@ Las pruebas unitarias son un tipo de prueba que verifica la funcionalidad de par
 - __Pruebas de manejo de errores__ : Verifican que el sistema maneja correctamente las situaciones de error. Por ejemplo el test *convertirMonedaOrigenInvalidaArrojaExcepcion* verifica que el sistema arroja una excepción cuando se intenta convertir una moneda que no es válida.
 - __Pruebas de límites__ : Aseguran que el sistema maneja correctamente los casos límite. La prueba *retirarMontoIgualSaldo* de la clase *CuentaTest* es un ejemplo de una prueba de límites, ya que verifica el comportamiento del sistema cuando se intenta retirar un monto igual al saldo disponible en la cuenta.
 
+![Diagrama de clases](./TestCoverage.jpg)
+
 
 ## 🛠️ Requisitos
 
@@ -60,7 +71,7 @@ Las pruebas unitarias son un tipo de prueba que verifica la funcionalidad de par
 - Maven 3.6.3 o superior
 - - Dependencias Maven
   - JUnit 5
-  - Mockito 3.9.0
+  - Mockito 5.10.0
 - IDE (IntelliJ IDEA, Eclipse, NetBeans, etc)
 
 ## ⚙️Ejecutar la aplicación
@@ -95,7 +106,7 @@ cd out/artifacts/VirtualWallet_jar
 java -jar VirtualWallet.jar
 ```
 
-## Contribuir
+## 🧑‍🔧Contribuir
 
 Si deseas contribuir a este proyecto, sigue los siguientes pasos:
 1. Realiza un [Fork](https://github.com/Jvbass/BilleteraVirtual/fork) del proyecto.

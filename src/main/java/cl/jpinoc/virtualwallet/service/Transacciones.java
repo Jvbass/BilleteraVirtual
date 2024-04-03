@@ -19,7 +19,7 @@ public class Transacciones implements ITransaccion {
 
     /**
      * Constructor de la clase Transacciones.
-     * Inicializa la lista de movimientos como una lista vacía.
+     * Inicializa la lista de movimientos vacía.
      */
     public Transacciones() {
         this.movimiento = new ArrayList<>();
