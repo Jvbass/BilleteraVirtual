@@ -7,7 +7,7 @@
 </div>
 
 ## 📃 Acerca del proyecto
-****
+
 
 Este proyecto es una aplicación de consola que simula una billetera virtual. El objetivo de este proyecto es aplicar los conceptos básicos de la programación orientada a objetos en Java.
 #### La aplicación permite a los usuarios:
@@ -26,10 +26,10 @@ Este proyecto es una aplicación de consola que simula una billetera virtual. El
 ** El proyecto incluye tambien test unitarios para las clases principales.
 
 ## 📚 Diagrama de clases
-****
+
 
 ## ‍🧑‍🔬Principios de la POO aplicados 
-****
+
 **SOLID**
 En el proyecto se intenta seguir los principios SOLID de la programación orientada a objetos:
 
@@ -46,7 +46,7 @@ En el proyecto se intenta seguir los principios SOLID de la programación orient
 
 
 ## 🔍Test unitarios
-****
+
 Las pruebas unitarias son un tipo de prueba que verifica la funcionalidad de partes individuales de un programa, generalmente a nivel de método o clase.
 #### El proyecto incluye test unitarios para las clases Conversor y Cuenta.
 - __Prueba de camino feliz__ :  Comprueban que el sistema funciona correctamente cuando se le proporcionan entradas válidas. En este caso, la prueba *convertirMonedasValidasConversionCorrecta* es un ejemplo de una prueba de camino feliz.
@@ -55,7 +55,7 @@ Las pruebas unitarias son un tipo de prueba que verifica la funcionalidad de par
 
 
 ## 🛠️ Requisitos
-****
+
 - Java Development Kit (JDK) 8 o superior
 - Maven 3.6.3 o superior
 - - Dependencias Maven
@@ -64,7 +64,7 @@ Las pruebas unitarias son un tipo de prueba que verifica la funcionalidad de par
 - IDE (IntelliJ IDEA, Eclipse, NetBeans, etc)
 
 ## ⚙️Ejecutar la aplicación
-****
+
 1. Si deseas ejecutar y modificar el código fuente, puedes clonar el repositorio del proyecto en tu sistema local y abrirlo en tu IDE favorito.
     
     ```bash
@@ -80,8 +80,6 @@ Las pruebas unitarias son un tipo de prueba que verifica la funcionalidad de par
 5. Sigue las instrucciones en la consola para interactuar con la aplicación.
 
 
-
-***
 ### 🚀️Para ejecutar la aplicación desde el archivo .jar
 1.  Descarga o clona el archivo __VirtualWallet.jar__ que se encuentra en el directorio:*
 ```
@@ -98,7 +96,7 @@ java -jar VirtualWallet.jar
 ```
 
 ## Contribuir
-****
+
 Si deseas contribuir a este proyecto, sigue los siguientes pasos:
 1. Realiza un [Fork](https://github.com/Jvbass/BilleteraVirtual/fork) del proyecto.
  2. Clona el repositorio en tu máquina local:
