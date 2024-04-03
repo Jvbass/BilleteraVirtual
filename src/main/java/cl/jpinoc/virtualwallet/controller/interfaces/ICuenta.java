@@ -5,7 +5,7 @@ package cl.jpinoc.virtualwallet.controller.interfaces;
  *  @author Jpino.dev
  *  @version 1.0
  */
-public interface IBilletera {
+public interface ICuenta {
 
     /**
      * Método para depositar una cantidad en la billetera.

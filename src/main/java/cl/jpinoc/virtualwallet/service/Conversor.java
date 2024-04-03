@@ -37,7 +37,7 @@ public class Conversor {
      * @exception IllegalArgumentException si el monto es negativo.
      * @see IMoneda
      */
-    public static void convertir(double monto, String monedaOrigen, String monedaDestino) {
+    public static double convertir(double monto, String monedaOrigen, String monedaDestino) {
         // Obtener las instancias de IMoneda correspondientes a las monedas de origen y destino
         IMoneda monedaDesde = monedas.get(monedaOrigen);
         IMoneda monedaA = monedas.get(monedaDestino);
@@ -57,5 +57,6 @@ public class Conversor {
 
         // Imprimir el resultado de la conversión
         System.out.println(monto + " " + monedaDesde.getNombre() + " = " + resultadoString + " " + monedaA.getNombre());
+        return resultado;
     }
 }
