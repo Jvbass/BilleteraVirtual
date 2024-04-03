@@ -9,6 +9,9 @@ import cl.jpinoc.virtualwallet.controller.interfaces.IMoneda;
  *  @version 1.0
  */
 public class PesoCl implements IMoneda {
+
+    private final String nombre = "CLP";
+    private final double valor = 1.0;
     /**
      * Método para obtener el nombre de la moneda.
      *
@@ -16,7 +19,7 @@ public class PesoCl implements IMoneda {
      */
     @Override
     public String getNombre() {
-        return "CLP";
+        return this.nombre;
     }
 
     /**
@@ -27,6 +30,6 @@ public class PesoCl implements IMoneda {
      */
     @Override
     public double getValor() {
-        return 1.0;
+        return this.valor;
     }
 }

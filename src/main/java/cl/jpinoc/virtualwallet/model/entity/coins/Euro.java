@@ -9,6 +9,9 @@ import cl.jpinoc.virtualwallet.controller.interfaces.IMoneda;
  *  @version 1.0
  */
 public class Euro implements IMoneda {
+
+    private final String nombre = "EUR";
+    private final double valor = 1063.31;
     /**
      * Método para obtener el nombre de la moneda.
      *
@@ -16,17 +19,17 @@ public class Euro implements IMoneda {
      */
     @Override
     public String getNombre() {
-        return "EUR";
+        return this.nombre;
     }
 
     /**
      * Método para obtener el valor de la moneda respecto a una unidad base.
-     * En este caso, el valor del Euro es 1063.31 (por ejemplo, 1 Euro = 1063.31 CLP).
+     * En este caso, el valor del Euro equivale a 1063.31 CLP.
      *
      * @return el valor de la moneda (1063.31 para Euro).
      */
     @Override
     public double getValor() {
-        return 1063.31;
+        return this.valor;
     }
 }
